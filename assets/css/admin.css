@@ -1,0 +1,2 @@
+/* Thickens Divider Lines in WP Admin Menu */
+#adminmenu li.wp-menu-separator {border-bottom: 1px solid rgba(255,255,255,0.10); border-top: 1px solid rgba(0,0,0,0.90); height: 0; margin: 10px 0}
