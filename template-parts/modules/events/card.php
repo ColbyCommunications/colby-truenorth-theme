@@ -50,7 +50,13 @@
     <div class="card__meta">
       <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
       <span><?php echo $date->format('F j, Y'); ?></span>
-      <?php if (!$event_in_past) : ?><span><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> <?php echo get_field('time_zone')['label']; ?></span><?php endif; ?>
+      <?php if (!$event_in_past) : ?>
+        <?php
+          $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
+          $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
+        ?>
+        <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo get_field('time_zone')['label']; ?></span>
+      <?php endif; ?>
     </div>
     <div class="card__overview">
       <p><?php the_field('overview'); ?></p>

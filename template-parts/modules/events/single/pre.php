@@ -33,7 +33,11 @@
             <div class="event-card__meta">
               <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
               <span><?php echo $date->format('F j, Y'); ?></span>
-              <span><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> <?php echo $date_cal_timezone['label']; ?></span>
+              <?php
+                $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
+                $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
+              ?>
+              <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo $date_cal_timezone['label']; ?></span>
             </div>
             <div class="event-card__overview">
               <p><?php the_field('overview'); ?></p>
@@ -50,7 +54,11 @@
             <div class="event-card__meta">
               <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
               <span><?php echo $date->format('F j, Y'); ?></span>
-              <span><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> <?php echo $date_cal_timezone['label']; ?></span>
+              <?php
+                $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
+                $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
+              ?>
+              <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo $date_cal_timezone['label']; ?></span>
             </div>
             <?php if (!empty($add_to_cal['date_cal_start_iso']) && !empty($add_to_cal['date_cal_end_iso'])) : ?>
             <span class="label label--secondary">Add to Calendar</span>
@@ -111,7 +119,24 @@
             <span class="label label--secondary">See Who is Attending..</span>
             <ul class="event-card__attendees">
               <?php while($visible_registered_members_query->have_posts()) : $visible_registered_members_query->the_post(); ?>
-                <li><?php the_field('name'); ?></li>
+                <?php
+                  $class_year_output = "";
+                  $user = get_field('user');
+                  if ($user) {
+                    $user_id = $user['ID'];
+                    $user_affiliation = get_user_meta($user_id, 'rcp_member_affiliation', true );
+                    if ($user_affiliation === "Alumni" || $user_affiliation === "Parent" || $user_affiliation === "Student") {
+                      $class_year_prefix = "";
+                      $user_class_year = get_user_meta($user_id, 'rcp_member_class_year', true);
+                      $user_class_year = substr($user_class_year, 2);
+                      if ($user_affiliation === "Parent") {
+                        $class_year_prefix = "P";
+                      }
+                      $class_year_output = $class_year_prefix . "'" . $user_class_year;
+                    }
+                  }
+                ?>
+                <li><?php the_field('name'); ?> <?php echo $class_year_output; ?></li>
               <?php endwhile; ?>
               <?php if ($additional_registered_members > 0) : ?><li>...And <?php echo $additional_registered_members; ?> more attendee<?php if ($additional_registered_members > 1) : ?>s<?php endif; ?></li><?php endif; ?>
             </ul>

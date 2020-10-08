@@ -123,6 +123,9 @@ body:not(.user-is-tabbing) .utility-links > ul > li.utility-links__account > but
 	.header__container{width: 100%; max-width:1310px; margin-right:auto; margin-left:auto; padding: 0 0.9375rem;}
 	.header__inner {height: 100px; position: relative;}
 	.logo {display:block; position:absolute; top:0; left:0; height: 100px; line-height: 100px; max-width: 350px; z-index:1;}
+  .logo__colby, .logo__dare {display: block; position: absolute; top: 0; width: 50%; height: 100%;}
+  .logo__colby {left: 0; }
+  .logo__dare {right: 0;}
 	.logo img {display: inline-block; vertical-align: middle;}
 	/*-----------Header - Menu-----------*/
 	.menu {font-size: 15px; position:absolute; bottom:0; width: 100%;}

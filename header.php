@@ -20,7 +20,11 @@
       <div class="header__container">
         <div class="header__inner">
           <!-- Begin Logo -->
-          <a href="/" class="logo"><img alt="<?php echo get_bloginfo(); ?> Logo" src="/wp-content/uploads/colby-dare-northward-logo.png" width="200" height="60"></a>
+          <div class="logo">
+            <a class="logo__colby" href="https://www.colby.edu/" target="_blank"></a>
+            <a class="logo__dare" href="https://darenorthward.colby.edu/" target="_blank"></a>
+            <img alt="<?php echo get_bloginfo(); ?> Logo" src="/wp-content/uploads/colby-dare-northward-logo.png" width="200" height="60">
+          </div>
           <!-- End Logo -->
           <!-- Begin Drawer -->
           <div class="drawer">

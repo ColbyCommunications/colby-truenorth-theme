@@ -16,7 +16,11 @@ $hero_headline = get_field('hero_headline', $id_term);
 <!--Begin Hero Carousel-->
 <section class="hero">
   <?php if (have_rows('hero_carousel')) : while (have_rows('hero_carousel')) : the_row(); ?>
-  <div class="hero__slides">
+  <?php if (get_sub_field('link')) : ?>
+    <a class="hero__slides" href="<?php echo get_sub_field('link')['url']; ?>" <?php if ( get_sub_field('link')['target'] ) : ?>target="_blank"<?php endif; ?>><?php echo get_sub_field('link')['title']; ?>
+  <?php else : ?>
+    <div class="hero__slides">
+  <?php endif; ?>
     <picture>
       <?php if (get_sub_field('mobile_image')) : ?>
       <source media="(max-width: 640px)" srcset="<?php echo get_sub_field('mobile_image')['url']; ?> 640w">
@@ -26,7 +30,11 @@ $hero_headline = get_field('hero_headline', $id_term);
       <?php endif; ?>
       <img src="<?php echo get_sub_field('desktop_image')['url']; ?>" width="1440" height="425" alt="<?php echo get_sub_field('desktop_image')['alt']; ?>">
     </picture>
+  <?php if (get_sub_field('link')) : ?>
+    </a>
+  <?php else : ?>
   </div>
+  <?php endif; ?>
   <?php endwhile; endif; ?>
 </section>
 <!--End Hero Carousel-->

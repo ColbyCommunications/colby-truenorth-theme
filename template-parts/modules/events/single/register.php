@@ -8,7 +8,11 @@
           <div class="event-register__meta">
             <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
             <span><?php echo $date->format('F j, Y'); ?></span>
-            <span><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> <?php echo get_field('time_zone')['label']; ?></span>
+            <?php
+              $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
+              $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
+            ?>
+            <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo get_field('time_zone')['label']; ?></span>
           </div>
           <div class="event-card__overview">
             <p><?php the_field('overview'); ?></p>

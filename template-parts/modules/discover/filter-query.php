@@ -3,8 +3,8 @@ $post_args = array(
   'post_type' => 'media',
   'post_status' => 'publish',
   'posts_per_page'=> 16,
-  'orderby' => 'menu_order',
-  'order' => 'ASC',
+  'orderby' => 'date',
+  'order' => 'DESC',
   'paged' => $post_filters['pagination']
 );
 
