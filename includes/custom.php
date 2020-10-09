@@ -144,3 +144,11 @@ function ad_event_dates($date = null, $start_time = null, $end_time = null, $tim
   );
 
 }
+
+add_filter( 'gform_pre_send_email', 'ad_before_email' );
+
+function ad_before_email( $email ) {
+  $email['subject'] = html_entity_decode($email['subject']);
+  return $email;
+}
+
