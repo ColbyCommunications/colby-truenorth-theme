@@ -104,6 +104,13 @@ var Module = (function() {
 
   }; // end carousels
 
+  var _selectDropdown = function() {
+    $(".js-custom-select").select2({
+      width: '100%',
+      minimumResultsForSearch: Infinity
+    });
+  }; // end select dropdown
+
   var _postFilter = function() {
 
     var $filter_list = $(".js-ajax-load"),
@@ -228,8 +235,8 @@ var Module = (function() {
       $filter_form.find('input[type="checkbox"]').prop("checked", false);
       $filter_form.find('input[type="text"], select').each(function() {
         $(this).val("");
+        $(this).trigger("change");
       });
-      $filter_form.submit();
     };
 
     // Update Form Filters on Forward/Back in Browser
@@ -699,6 +706,7 @@ var Module = (function() {
     _navFramework();
     _techDetect();
     _carousels();
+    _selectDropdown();
     _postFilter();
     _pagination();
     _countdowns();

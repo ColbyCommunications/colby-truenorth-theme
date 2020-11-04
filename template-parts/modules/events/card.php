@@ -1,33 +1,30 @@
 <?php
   $event_in_past = false;
   $event_link = get_the_permalink();
-  $event_link_register = get_the_permalink() . "?register=true";
   $event_link_target = "";
   $event_link_class = "";
-  $event_link_title = "Register";
+  $event_link_title = "Event Details";
+  $event_post_link_title = get_field('post_event_link_text');
   $event_status = ad_event_status(get_field('show_event_start_date_time'), get_field('show_event_end_date_time'));
 
   if (get_field('external_event_link')) {
     $event_link = get_field('external_event_link');
     $event_link_title = get_field('event_link_text');
-    $event_link_register = $event_link;
     $event_link_target = 'target="_blank"';
     if ($event_status === "Live") {
       $event_link_title = "Enter Event";
     }
     elseif ($event_status === "Post") {
       $event_in_past = true;
-      $event_link_title = "Watch Recap";
+      $event_link_title = isset($event_post_link_title) ? $event_post_link_title : 'Watch Recap';
     }
   }
   else {
     if ($event_status === "Post") {
       $event_in_past = true;
-      $event_link_register = $event_link;
-      $event_link_title = "Watch Recap";
+      $event_link_title = isset($event_post_link_title) ? $event_post_link_title : 'Watch Recap';
     }
     elseif (ad_registered_event(get_the_id())) {
-      $event_link_register = $event_link;
       $event_link_class = "secondary";
       if ($event_status === "Pre") {
         $event_link_title = "Registered";
@@ -63,6 +60,6 @@
     </div>
   </div>
   <div class="card__action">
-    <a class="button <?php echo $event_link_class; ?>" href="<?php echo $event_link_register; ?>" <?php echo $event_link_target; ?>><span><?php echo $event_link_title; ?></span></a>
+    <a class="button <?php echo $event_link_class; ?>" href="<?php echo $event_link; ?>" <?php echo $event_link_target; ?>><span><?php echo $event_link_title; ?></span></a>
   </div>
 </div>

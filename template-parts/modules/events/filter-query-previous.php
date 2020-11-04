@@ -1,6 +1,7 @@
 <?php
 // Current Date
-$date_now = new DateTime(wp_date(DATE_RFC3339), new DateTimeZone('-05:00'));
+$date_now = new DateTime(wp_date(DATE_RFC3339));
+$date_now = $date_now->setTimezone(new DateTimeZone('America/New_York'));
 $date_now = $date_now->format('Y-m-d'); // Format to only have date so that events are compared only with the current date and not current time
 $post_args = array(
   'post_type' => 'events',

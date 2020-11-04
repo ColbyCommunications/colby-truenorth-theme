@@ -19,19 +19,21 @@
       <div class="post-grid__filter">
         <form class="js-post-filter">
           <div class="post-grid__filter-row">
-            <select class="js-filter-select" name="category" aria-label="Select Category">
-              <option value="">Select Category</option>
-              <?php
-              // Loop over each filter option
-              $terms = get_terms(array(
-                  'taxonomy' => 'media_categories',
-                  'hide_empty' => true,
-              ));
-              ?>
-              <?php foreach ($terms as $term) : ?>
-              <option value="<?php echo $term->slug; ?>" <?php selected($post_filters['category'], $term->slug, true); ?>><?php echo $term->name; ?></option>
-              <?php endforeach; ?>
-            </select>
+            <div class="post-grid__filter-select">
+              <select class="js-filter-select js-custom-select" name="category" aria-label="Select Category">
+                <option value="">Select Category</option>
+                <?php
+                // Loop over each filter option
+                $terms = get_terms(array(
+                    'taxonomy' => 'media_categories',
+                    'hide_empty' => true,
+                ));
+                ?>
+                <?php foreach ($terms as $term) : ?>
+                <option value="<?php echo $term->slug; ?>" <?php selected($post_filters['category'], $term->slug, true); ?>><?php echo $term->name; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
           </div>
           <div class="post-grid__filter-row">
             <button type="button" class="button post-grid__filter-clear js-filter-clear">Reset</button>
@@ -61,7 +63,8 @@
 <!-- Begin Past Events -->
 <?php
   // Current Date
-  $date_now = new DateTime(wp_date(DATE_RFC3339), new DateTimeZone('-05:00'));
+  $date_now = new DateTime(wp_date(DATE_RFC3339));
+  $date_now = $date_now->setTimezone(new DateTimeZone('America/New_York'));
   $date_now = $date_now->format('Y-m-d'); // Format to only have date so that events are compared only with the current date and not current time
   $events_args = array(
     'post_type' => 'events',

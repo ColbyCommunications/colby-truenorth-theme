@@ -138,6 +138,11 @@ class AD_Account {
     }
 
     $form_data['acf']['name'] = get_the_author_meta('first_name', $user_id) . ' ' . get_the_author_meta('last_name', $user_id);
+    $form_data['acf']['first_name'] = get_the_author_meta('first_name', $user_id);
+    $form_data['acf']['last_name'] = get_the_author_meta('last_name', $user_id);
+    $form_data['acf']['affiliation'] = get_user_meta($user_id, 'rcp_member_affiliation', true );
+    $form_data['acf']['class_year'] = get_user_meta($user_id, 'rcp_member_class_year', true );
+    $form_data['acf']['reason_for_attending'] = get_user_meta($user_id, 'rcp_member_reason_attending', true );
     $form_data['acf']['visible'] = isset($form_data['member_attendee_visibility']) ? 1 : 0;
     $form_data['acf']['email'] = sanitize_email($form_data['user_email']);
     $form_data['acf']['user'] = $user_id;

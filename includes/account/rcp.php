@@ -34,6 +34,7 @@ class AD_Account_RCP {
   //  @return array
   /////////////////////////////////////////////////////////////////////
   public function members_export_headers( $columns ) {
+    $columns['full_name'] = __( 'Full Name' );
     $columns['member_affiliation'] = __( 'Affiliation' );
     $columns['class_year'] = __( 'Class Year' );
     $columns['reason_attending'] = __( 'Reason for Attending' );
@@ -49,6 +50,7 @@ class AD_Account_RCP {
   //  @return array
   /////////////////////////////////////////////////////////////////////
   public function members_export_row_values( $row, $membership ) {
+    $row['full_name'] = get_the_author_meta('first_name', $membership->get_customer()->get_user_id()) . ' ' . get_the_author_meta('last_name', $membership->get_customer()->get_user_id());
     $row['member_affiliation'] = get_user_meta( $membership->get_customer()->get_user_id(), 'rcp_member_affiliation', true );
     $row['class_year'] = get_user_meta( $membership->get_customer()->get_user_id(), 'rcp_member_class_year', true );
     $row['reason_attending'] = get_user_meta( $membership->get_customer()->get_user_id(), 'rcp_member_reason_attending', true );

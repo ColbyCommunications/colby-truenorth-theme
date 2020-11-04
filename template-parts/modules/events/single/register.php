@@ -94,7 +94,7 @@
                   $(".js-affiliation-class-year input").attr("placeholder", "Enter Class Year").val("");
                   $(".js-affiliation-class-year input, .js-affiliation-reason input").removeAttr("required");
 
-                  if ($(this).val() === "Alumni" || $(this).val() === "Parent" || $(this).val() === "Friends" || $(this).val() === "Student") {
+                  if ($(this).val() === "Alumni" || $(this).val() === "Parent" || $(this).val() === "Student") {
                     $(".js-affiliation-class-year").show();
                     $(".js-affiliation-class-year input").attr("required", "");
                   }

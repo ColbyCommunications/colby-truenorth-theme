@@ -32,4 +32,13 @@ if(class_exists('ACF')) {
   }
   add_filter('acf/load_value/type=relationship', 'ad_acf_relationship_return_publish', 10, 3);
 
+  // Allow Shortcode in Instructions
+  function ad_acf_prepare_field($field) {
+    $field['instructions'] = do_shortcode($field['instructions']);
+    return $field;
+  }
+  add_filter('acf/prepare_field/key=field_5f71fdff1dead', 'ad_acf_prepare_field');
+  add_filter('acf/prepare_field/key=field_5f71fe2c1deae', 'ad_acf_prepare_field');
+  add_filter('acf/prepare_field/key=field_5f71fe411deb0', 'ad_acf_prepare_field');
+
 }

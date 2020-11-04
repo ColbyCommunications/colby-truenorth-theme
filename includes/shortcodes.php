@@ -48,3 +48,19 @@ function ad_style_guide_shortcode() {
     return ob_get_clean();
 }
 add_shortcode( 'styleguide', 'ad_style_guide_shortcode' );
+
+// Displays event preview short code
+function ad_event_preview_shortcode( $atts, $content = null ) {
+    $values = shortcode_atts( array(
+        'type' => ''
+    ), $atts );
+
+    if ($values['type'] !== "") {
+      $preview_link = add_query_arg( 'event-status',  $values['type'], get_permalink(get_the_id()) );
+      return '<p class="description"><a href="'.$preview_link.'" target="_blank">Preview</a></p>';
+    }
+    else {
+      return '';
+    }
+}
+add_shortcode( 'preview', 'ad_event_preview_shortcode' );

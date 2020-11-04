@@ -42,15 +42,22 @@ function pretty_dump($source) {
 /**
  * Function to check event status. Pre, Live, or Post Event
  */
-function ad_event_status($show_event_start_date_time = null, $show_event_end_date_time = null) {
+function ad_event_status($show_event_start_date_time = null, $show_event_end_date_time = null, $show_event_timezone = 'America/New_York') {
 
  if (!isset($show_event_start_date_time) || !isset($show_event_end_date_time)) {
    return "Pre";
  }
 
- $date_now = new DateTime(wp_date(DATE_RFC3339), new DateTimeZone('-05:00'));
- $date_start_show_event = new DateTime($show_event_start_date_time, new DateTimeZone('-05:00'));
- $date_end_show_event = new DateTime($show_event_end_date_time, new DateTimeZone('-05:00'));
+ $date_now = new DateTime(wp_date(DATE_RFC3339));
+ $date_now = $date_now->setTimezone(new DateTimeZone($show_event_timezone));
+ $date_now = new DateTime($date_now->format('Y-m-d H:i:s'));
+ #pretty_dump($date_now);
+
+ $date_start_show_event = new DateTime($show_event_start_date_time);
+ #pretty_dump($date_start_show_event);
+
+ $date_end_show_event = new DateTime($show_event_end_date_time);
+ #pretty_dump($date_end_show_event);
 
  if ($date_now < $date_start_show_event) {
    return "Pre";
@@ -145,10 +152,9 @@ function ad_event_dates($date = null, $start_time = null, $end_time = null, $tim
 
 }
 
-add_filter( 'gform_pre_send_email', 'ad_before_email' );
 
+add_filter( 'gform_pre_send_email', 'ad_before_email' );
 function ad_before_email( $email ) {
   $email['subject'] = html_entity_decode($email['subject']);
   return $email;
 }
-
