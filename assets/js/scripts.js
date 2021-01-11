@@ -469,6 +469,7 @@ var Module = (function() {
           'view': $form.attr("data-view")
         }
       }).done(function(response) {
+        console.log(response);
         if (response.status) {
           if ($form.attr("data-redirect") && $form.attr("data-redirect") !== "") {
             // Redirect to URL
