@@ -137,7 +137,7 @@ body:not(.user-is-tabbing) .utility-links > ul > li.utility-links__account > but
 	.menu > ul li:not(.mega-drop) {position:relative;}
 	.menu > ul > li {float: left;}
 	.menu > ul > li > a {font-size: 1em; font-family: 'Gotham'; font-weight: 500; height:100px; line-height:100px; margin: 0 1.5em; color: #fff; position: relative; transition:color 250ms ease;}
-	.menu > ul > li:hover > a, .menu > ul > li > a:hover, .menu > ul > li.selected > a {color: #f00}
+	.menu > ul > li:hover > a, .menu > ul > li > a:hover, .menu > ul > li.selected > a {color: #fff}
 	.menu > ul > li > a > .menu-arrow::after {font-size: 0.875em; font-weight: 400; content:"\e911"; font-family: 'CD-Project-Icons'; display:block; position: absolute; top: 0; right: -1.2857em; color: #bcbec0; transition: transform 250ms ease}
 	.menu > ul > li:hover > a > .menu-arrow::after {transform: rotate(-180deg);}
 	.menu > ul > li:not(.mega-drop) > ul > li:last-child > a {border-radius: 0 0 0 1px}
