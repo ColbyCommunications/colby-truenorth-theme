@@ -59,7 +59,7 @@ class AD_Account {
   public function ajax_login(){
 
     // First check the nonce, if it fails the function will break
-    check_ajax_referer( 'ajax-login-nonce', 'login-security', false );
+    // check_ajax_referer( 'ajax-login-nonce', 'login-security', false );
 
     // Login View
     $login_view = "";
@@ -113,7 +113,7 @@ class AD_Account {
   public function ajax_logout(){
 
       // First check the nonce, if it fails the function will break
-      check_ajax_referer( 'ajax-logout-nonce', 'logout-security', false );
+      // check_ajax_referer( 'ajax-logout-nonce', 'logout-security', false );
 
       // Log User Out
       $user_logout = wp_logout();
@@ -212,7 +212,7 @@ class AD_Account {
   public function ajax_register(){
 
       // First check the nonce, if it fails the function will break
-      check_ajax_referer( 'ajax-register-nonce', 'register-security', false );
+      // check_ajax_referer( 'ajax-register-nonce', 'register-security', false );
 
       // Nonce is checked, get the POST data and sign user on
       $user = array();
@@ -292,7 +292,7 @@ class AD_Account {
   public function ajax_event_register(){
 
       // First check the nonce, if it fails the function will break
-      check_ajax_referer( 'ajax-register-nonce', 'register-security', false );
+      // check_ajax_referer( 'ajax-register-nonce', 'register-security', false );
 
       // Nonce is checked, get the POST data and sign user on
       $current_user = wp_get_current_user();
