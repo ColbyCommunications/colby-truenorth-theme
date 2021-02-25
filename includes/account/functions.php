@@ -59,7 +59,7 @@ class AD_Account {
   public function ajax_login(){
 
     // First check the nonce, if it fails the function will break
-    check_ajax_referer( 'ajax-login-nonce', 'login-security' );
+    check_ajax_referer( 'ajax-login-nonce', 'login-security', false );
 
     // Login View
     $login_view = "";
@@ -113,7 +113,7 @@ class AD_Account {
   public function ajax_logout(){
 
       // First check the nonce, if it fails the function will break
-      check_ajax_referer( 'ajax-logout-nonce', 'logout-security' );
+      check_ajax_referer( 'ajax-logout-nonce', 'logout-security', false );
 
       // Log User Out
       $user_logout = wp_logout();
