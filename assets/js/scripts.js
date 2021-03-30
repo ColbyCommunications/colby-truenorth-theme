@@ -1,8 +1,8 @@
-var Module = (function() {
+var Module = (function () {
 
   // Menu Selected States
-  var _navSelectedState = function() {
-    $(".menu a").each(function() {
+  var _navSelectedState = function () {
+    $(".menu a").each(function () {
       var $this = $(this);
       if ($this.attr('href') === window.location.pathname + window.location.search || $this.attr('href') === window.location.href) {
         $this.addClass('selected').parents('li').addClass('selected');
@@ -11,7 +11,7 @@ var Module = (function() {
   };
 
   // Desktop Menu
-  var _navFramework = function() {
+  var _navFramework = function () {
     // Initialize Menu Plugin
     var menu = $(".menu").dropdown_menu({
       site_class: 'root',
@@ -31,7 +31,7 @@ var Module = (function() {
 
   }; // end nav framework
 
-  var _techDetect = function() {
+  var _techDetect = function () {
     var isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
     var isIOS = /(iPhone|iPod|iPad)/i.test(navigator.platform);
 
@@ -44,7 +44,7 @@ var Module = (function() {
 
   };
 
-  var _carousels = function() {
+  var _carousels = function () {
 
     // Hero Carousel
     $('.hero').slick({
@@ -75,7 +75,7 @@ var Module = (function() {
     });
 
     // Card Carousel
-    $('.js-card-carousel').each(function() {
+    $('.js-card-carousel').each(function () {
       var $this = $(this);
       $this.slick({
         slidesToShow: 3,
@@ -84,34 +84,34 @@ var Module = (function() {
         nextArrow: $this.closest(".card-carousel__slider").find('.card-carousel__arows .slick-next'),
         dots: true,
         responsive: [{
-            breakpoint: 960,
-            settings: {
-              slidesToShow: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              infinite: true,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 1
-            }
+          breakpoint: 960,
+          settings: {
+            slidesToShow: 2
           }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            infinite: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
         ]
       });
     });
 
   }; // end carousels
 
-  var _selectDropdown = function() {
+  var _selectDropdown = function () {
     $(".js-custom-select").select2({
       width: '100%',
       minimumResultsForSearch: Infinity
     });
   }; // end select dropdown
 
-  var _postFilter = function() {
+  var _postFilter = function () {
 
     var $filter_list = $(".js-ajax-load"),
       $filter_form = $(".js-post-filter"),
@@ -130,7 +130,7 @@ var Module = (function() {
       current_url: window.location.href, // Smart Pagination - Current URL
     };
 
-    var ajaxFilter = function(filter_data) {
+    var ajaxFilter = function (filter_data) {
       // Add Loading Animation
       $("body").append('<div class="spinner"></div>');
       // Scroll Top
@@ -153,14 +153,14 @@ var Module = (function() {
           query: filter_data,
           settings: filter_settings
         }
-      }).done(function(response) {
+      }).done(function (response) {
         var $response = $(response);
         if ($response.find(".ajax-item").length) {
-          $(".js-ajax-load").fadeOut(250, function() {
+          $(".js-ajax-load").fadeOut(250, function () {
             $(this).html($response.filter(".ajax-load").html()).fadeIn(250);
           });
         } else {
-          $(".js-ajax-load").fadeOut(250, function() {
+          $(".js-ajax-load").fadeOut(250, function () {
             $(".js-ajax-load").html('<div class="alert-container"><div class="alert alert-info"><p>No results found. Please try your search again.</div></div>').fadeIn(250);
           });
         }
@@ -179,7 +179,7 @@ var Module = (function() {
 
     }; // end ajaxFilter
 
-    var filterSubmit = function(form, context) {
+    var filterSubmit = function (form, context) {
       if (typeof context === 'undefined') {
         context = '';
       }
@@ -187,7 +187,7 @@ var Module = (function() {
       var form_data = form.serializeArray();
       var filter_data = "";
 
-      $.each(form_data, function(key, value) {
+      $.each(form_data, function (key, value) {
         if (value.value !== "") {
           var filter_sep = "&";
           if (filter_data === "") {
@@ -229,25 +229,25 @@ var Module = (function() {
 
     };
 
-    var filterClear = function() {
+    var filterClear = function () {
       history.pushState(null, null, window.location.pathname);
       $filter_clear.removeClass("post-grid__filter-clear--active");
       $filter_form.find('input[type="checkbox"]').prop("checked", false);
-      $filter_form.find('input[type="text"], select').each(function() {
+      $filter_form.find('input[type="text"], select').each(function () {
         $(this).val("");
         $(this).trigger("change");
       });
     };
 
     // Update Form Filters on Forward/Back in Browser
-    var updateFilters = function(filter_data) {
+    var updateFilters = function (filter_data) {
 
       function serializeStringToArray(data) {
         var filter_fields;
         var filter_json = [];
         if (data !== "" && data !== "undefined") {
           var filter_data_array = data.slice(data.indexOf('?') + 1).split('&');
-          $.each(filter_data_array, function(i) {
+          $.each(filter_data_array, function (i) {
             filter_fields = filter_data_array[i].split('=');
             if (filter_json[filter_fields[0]]) {
               if (!filter_json[filter_fields[0]].push) {
@@ -265,14 +265,14 @@ var Module = (function() {
       var filter_json = serializeStringToArray(filter_data);
 
       // Update Form Filters
-      $filter_form.find("input, select").each(function() {
+      $filter_form.find("input, select").each(function () {
         var $this = $(this);
         var filter_name = $this.attr("name");
         var filter_type = $this.attr("type");
 
         if (filter_json[filter_name]) {
           if (Array.isArray(filter_json[filter_name])) {
-            $.each(filter_json[filter_name], function(i) {
+            $.each(filter_json[filter_name], function (i) {
               if ($this.val() === this) {
                 $this.prop("checked", true);
               }
@@ -297,7 +297,7 @@ var Module = (function() {
     };
 
     // On Forward/Back in the Browser
-    window.onpopstate = function(event) {
+    window.onpopstate = function (event) {
       // Get Current Filter Parameters
       var current_history = window.location.search;
       current_history = current_history.substring(1);
@@ -309,18 +309,18 @@ var Module = (function() {
     };
 
     // On Form Submit
-    $filter_form.submit(function(event) {
+    $filter_form.submit(function (event) {
       event.preventDefault();
       filterSubmit($(this));
     });
 
     // Filter Select Submit
-    $(".js-filter-select").change(function() {
+    $(".js-filter-select").change(function () {
       $filter_form.submit();
     });
 
     // Pagination Update
-    $filter_pagination.on("click", "a", function(e) {
+    $filter_pagination.on("click", "a", function (e) {
       e.preventDefault();
       $filter_pagination.find(".pagination").attr("data-page-active", $(this).attr("data-page"));
       filterSubmit($filter_form, "pagination");
@@ -331,21 +331,21 @@ var Module = (function() {
       $filter_clear.addClass("post-grid__filter-clear--active");
     }
 
-    $filter_clear.click(function() {
+    $filter_clear.click(function () {
       filterClear();
     });
 
   }; // end post filter
 
-  var _pagination = function() {
+  var _pagination = function () {
 
-    $(document).on("click", ".pag-jump-label", function(e) {
+    $(document).on("click", ".pag-jump-label", function (e) {
       e.preventDefault();
       $(this).closest(".pag-jump").toggleClass("drop-active");
       $(this).closest(".pag-jump").find("ul").toggleClass("dropdown-active");
     });
 
-    $(document).click(function(e) {
+    $(document).click(function (e) {
       if (!e) e = window.event;
       var target = e.target || e.srcElement;
       if ($(".pag-jump ul").is(':visible') && !$(target).closest($(".pag-jump")).length) {
@@ -356,22 +356,22 @@ var Module = (function() {
 
   }; // end pagination
 
-  var _countdowns = function() {
+  var _countdowns = function () {
 
-    $('[data-countdown]').each(function() {
+    $('[data-countdown]').each(function () {
       var $this = $(this),
         finalDate = $(this).data('countdown');
-      $this.countdown(finalDate, function(event) {
+      $this.countdown(finalDate, function (event) {
         $this.html(event.strftime('<span class="countdown__days">%-D day%!D</span> : <span class="countdown__hours">%-H Hour%!H</span> : <span class="countdown__minutes">%-M Minute%!M</span>'));
       });
     });
 
   }; // end countdowns
 
-  var _account = function() {
+  var _account = function () {
 
     // Register Form
-    $(".js-register").submit(function(e) {
+    $(".js-register").submit(function (e) {
       e.preventDefault();
       var $form = $(this),
         $form_alert = $form.find(".alert");
@@ -392,7 +392,7 @@ var Module = (function() {
       var form_data = new FormData(this);
 
       // Add in any File Uploads
-      $form.find("[type=file]").each(function() {
+      $form.find("[type=file]").each(function () {
         form_data.append($(this).attr("name"), this.files[0]);
       });
 
@@ -402,7 +402,7 @@ var Module = (function() {
         data: form_data,
         contentType: false,
         processData: false
-      }).done(function(data) {
+      }).done(function (data) {
         var response = $.parseJSON(data);
         console.log(response);
         if (response.status) {
@@ -433,15 +433,23 @@ var Module = (function() {
           $form_alert.addClass("alert-danger animate-flicker").html('<p>' + response.message + '</p>'); // Alert
           $spinner.remove(); // Remove Loading Indicator
         }
-      }).fail(function() {
+      }).fail(function () {
         $form.find('button[type="submit"]').removeAttr("disabled");
         $spinner.remove();
         $form_alert.addClass("alert-danger animate-flicker").html('<p>An error occured. Please try again or contact us for assistance'); // Alert
       });
     });
 
+    // Login Form - Anchor & Scroll
+    $(document).on("click", ".js-scroll-login", function (e) {
+      e.preventDefault();
+      $(".event-register__login .slide-toggle").addClass("active");
+      $(".event-register__login .slide-content").slideDown();
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    });
+
     // Login Form
-    $(".js-login").submit(function(e) {
+    $(".js-login").submit(function (e) {
       e.preventDefault();
       var $form = $(this),
         $form_alert = $form.find(".alert");
@@ -468,8 +476,7 @@ var Module = (function() {
           'login-security': $form.find('input[name="login-security"]').val(),
           'view': $form.attr("data-view")
         }
-      }).done(function(response) {
-        console.log(response);
+      }).done(function (response) {
         if (response.status) {
           if ($form.attr("data-redirect") && $form.attr("data-redirect") !== "") {
             // Redirect to URL
@@ -498,7 +505,7 @@ var Module = (function() {
           $form_alert.addClass("alert-danger animate-flicker").html('<p>' + response.message + '</p>'); // Alert
           $spinner.remove(); // Remove Loading Indicator
         }
-      }).fail(function() {
+      }).fail(function () {
         $form.find('button[type="submit"]').removeAttr("disabled");
         $spinner.remove();
         $form_alert.addClass("alert-danger animate-flicker").html('<p>An error occured. Please try again or contact us for assistance'); // Alert
@@ -506,7 +513,7 @@ var Module = (function() {
     });
 
     // Logout Form
-    $(".js-logout").click(function(e) {
+    $(".js-logout").click(function (e) {
       e.preventDefault();
       var $this = $(this);
       $.ajax({
@@ -517,7 +524,7 @@ var Module = (function() {
           'action': 'ajax_logout',
           'logout-security': $this.attr("data-security")
         }
-      }).done(function(response) {
+      }).done(function (response) {
         if (response.status) {
           if ($this.attr("data-redirect") && $this.attr("data-redirect") !== "") {
             // Redirect to URL
@@ -538,9 +545,9 @@ var Module = (function() {
 
   }; // end account
 
-  var _addToCal = function() {
+  var _addToCal = function () {
 
-    $(".addtocal").each(function() {
+    $(".addtocal").each(function () {
       var $this = $(this);
       var add_to_cal = createCalendar({
         data: {
@@ -550,6 +557,7 @@ var Module = (function() {
           start: new Date($this.find(".addtocal__data-start").text()),
           // Event duration (IN MINUTES)
           //duration: 120,
+          allDay: ($this.find(".addtocal__data-allday").text() === "true") ? true : false,
           // You can also choose to set an end time
           // If an end time is set, this will take precedence over duration
           end: new Date($this.find(".addtocal__data-end").text()),
@@ -560,7 +568,7 @@ var Module = (function() {
         }
       });
 
-      $.each(add_to_cal, function(key, value) {
+      $.each(add_to_cal, function (key, value) {
         $this.find(".addtocal__list").append('<li>' + value + '</li>');
       });
 
@@ -568,7 +576,7 @@ var Module = (function() {
 
   }; // end addToCal
 
-  var _lightboxes = function() {
+  var _lightboxes = function () {
 
     // Videos
     $('.popup-video').magnificPopup({
@@ -584,12 +592,12 @@ var Module = (function() {
       mainClass: 'mfp-fade popup-embed-container',
       removalDelay: 500,
       callbacks: {
-        open: function() {
+        open: function () {
           var vidID = this.currItem.src;
           var vid = document.querySelector(vidID + " video");
           vid.play();
         },
-        close: function() {
+        close: function () {
           var vidID = this.currItem.src;
           var vid = document.querySelector(vidID + " video");
           vid.pause();
@@ -607,7 +615,7 @@ var Module = (function() {
     });
 
     // Ajax Popup
-    $('.ajax-popup, a[href^="#form-"]').click(function(event) {
+    $('.ajax-popup, a[href^="#form-"]').click(function (event) {
       event.preventDefault();
       // Get Ajax Path
       var $popup = $(this),
@@ -634,7 +642,7 @@ var Module = (function() {
           }
         },
         callbacks: {
-          ajaxContentAdded: function() {
+          ajaxContentAdded: function () {
             // Re-initialize form in popup
             if ($(this.content).find(".js-form-submit").length) {
               _formValidation();
@@ -649,7 +657,7 @@ var Module = (function() {
       type: 'inline',
       midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
       callbacks: {
-        open: function() {
+        open: function () {
           var target = $(this.st.el).attr("href");
           if (target.indexOf('team-') == 1) {
             window.location.hash = target;
@@ -659,18 +667,19 @@ var Module = (function() {
     });
 
     // Custom Close Button
-    $(document).on("click", ".js-exit-popup", function() {
+    $(document).on("click", ".js-exit-popup", function () {
       $.magnificPopup.close();
     });
 
   }; // end lightboxes
 
   // Slide Toggle
-  var _slideToggle = function() {
+  var _slideToggle = function () {
+
     var $slideContainer = $(".slide-toggle-container"),
       $slideToggle = $slideContainer.find(".slide-toggle");
 
-    $slideToggle.click(function(e) {
+    $slideToggle.click(function (e) {
       e.preventDefault();
       var $this = $(this);
       $this.toggleClass("active");
@@ -678,7 +687,7 @@ var Module = (function() {
     });
 
     // Accessibility - Works on Enter
-    $slideToggle.keypress(function(e) {
+    $slideToggle.keypress(function (e) {
       var key = e.which;
       if (key === 32) {
         $(this).click();
@@ -689,9 +698,9 @@ var Module = (function() {
   }; // end slide toggle
 
   // Mail Spam
-  var _mails = function() {
+  var _mails = function () {
     // re configures mail links
-    $('a[href^="mailto:"]').each(function() {
+    $('a[href^="mailto:"]').each(function () {
       var mail = $(this).attr('href').replace('mailto:', ''),
         replaced = mail.replace('/at/', '@');
       $(this).attr('href', 'mailto:' + replaced);
@@ -702,7 +711,7 @@ var Module = (function() {
   }; // end mail tweak
 
   // Initalize Private Methods
-  var init = function() {
+  var init = function () {
     _navSelectedState();
     _navFramework();
     _techDetect();
@@ -726,6 +735,6 @@ var Module = (function() {
 })();
 
 // Run Init Public Method When Dom is Ready
-$(function() {
+$(function () {
   Module.init();
 });

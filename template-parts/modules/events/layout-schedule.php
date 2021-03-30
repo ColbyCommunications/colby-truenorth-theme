@@ -35,8 +35,15 @@
           'posts_per_page'=> -1,
           'post__in' => $current_user_event_ids,
           'meta_query' => array(
+            'relation' => 'OR',
             array(
               'key'	=> 'date',
+              'compare'	=> '>=',
+              'value'	=> $date_now,
+              'type' => 'DATETIME'
+            ),
+            array(
+              'key'	=> 'date_end',
               'compare'	=> '>=',
               'value'	=> $date_now,
               'type' => 'DATETIME'

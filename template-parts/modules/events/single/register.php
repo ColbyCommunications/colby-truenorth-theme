@@ -6,19 +6,27 @@
         <div class="event-register__header">
           <h1 class="event-register__headline"><?php the_title(); ?></h1>
           <div class="event-register__meta">
-            <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
-            <span><?php echo $date->format('F j, Y'); ?></span>
+            <?php if (!get_field('hide_date')) : ?>
+              <?php if (get_field('date_end')) : ?>
+                <span><?php echo ad_start_end_date(get_field('date'), get_field('date_end')); ?></span>
+              <?php else : ?>
+                <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
+                <span><?php echo $date->format('F j, Y'); ?></span>
+              <?php endif; ?>
+            <?php endif; ?>
+            <?php if (!get_field('hide_time')) : ?>
             <?php
               $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
               $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
             ?>
-            <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo get_field('time_zone')['label']; ?></span>
+            <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo $date_cal_timezone['label']; ?></span>
+            <?php endif; ?>
           </div>
           <div class="event-card__overview">
             <p><?php the_field('overview'); ?></p>
           </div>
           <?php if (!is_user_logged_in()) : ?>
-          <div class="event-register__login slide-toggle-container">
+          <div id="anchor-login" class="event-register__login slide-toggle-container">
             <p class="event-register__login-link slide-toggle">Already Registered? <a href="#">Login</a></p>
             <div class="slide-content">
               <form class="js-login" data-view-"register" data-redirect="">

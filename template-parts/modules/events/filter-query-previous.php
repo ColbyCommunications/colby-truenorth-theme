@@ -13,6 +13,20 @@ $post_args = array(
       'compare'	=> '<',
       'value'	=> $date_now,
       'type' => 'DATETIME'
+    ),
+    array(
+      'relation' => 'OR',
+      array(
+        'key'	=> 'date_end',
+        'compare'	=> '=',
+        'value'	=> '',
+      ),
+      array(
+        'key'	=> 'date_end',
+        'compare'	=> '<',
+        'value'	=> $date_now,
+        'type' => 'DATETIME'
+      )
     )
   ),
   'order'	=> 'DESC',

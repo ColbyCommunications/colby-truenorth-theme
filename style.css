@@ -1370,6 +1370,9 @@ body.user-is-tabbing .slick-dots li button:focus	 {outline: 2px dashed #2890d7}
 .event-register__meta {margin-bottom: 1.875em}
 .event-register__meta span {font-size: 1.75em; display: inline-block; font-family: 'Argent CF', serif; font-weight: 700; color: #2890d7; line-height: 1.2; position: relative;}
 .event-register__header {margin-bottom: 2.5em;}
+.event-register__login {padding: 30px; border: 1px solid #2890d7}
+.event-register__login-link {margin-bottom: 0}
+.event-register__login form {margin-top: 1.25em;}
 .event-register .checkbox {margin: 0 0 2.5em 0;}
 .event-register .checkbox span {top: -0.1875em;}
 .event-register .checkbox span:before {font-size: 1.375em;}

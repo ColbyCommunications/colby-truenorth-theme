@@ -59,7 +59,7 @@ class AD_Account {
   public function ajax_login(){
 
     // First check the nonce, if it fails the function will break
-    check_ajax_referer( 'ajax-login-nonce', 'login-security' );
+    check_ajax_referer( 'ajax-login-nonce', 'login-security');
 
     // Login View
     $login_view = "";
@@ -113,7 +113,7 @@ class AD_Account {
   public function ajax_logout(){
 
       // First check the nonce, if it fails the function will break
-      check_ajax_referer( 'ajax-logout-nonce', 'logout-security' );
+      check_ajax_referer( 'ajax-logout-nonce', 'logout-security');
 
       // Log User Out
       $user_logout = wp_logout();
@@ -193,6 +193,12 @@ class AD_Account {
     $input_values['input_6'] = get_permalink($event);
     $input_values['input_7'] = $event_date;
     $input_values['input_5'] = get_field('overview', $event);
+    $input_values['input_8'] = $user_id;
+    $input_values['input_9'] = get_user_meta($user_id, 'rcp_member_affiliation', true );
+    $input_values['input_10'] = get_user_meta($user_id, 'rcp_member_class_year', true );
+    $input_values['input_11'] = get_user_meta($user_id, 'rcp_member_reason_attending', true );
+    $input_values['input_12'] = isset($form_data['acf']['question']) ? $form_data['acf']['question'] : '';
+    $input_values['input_13'] = isset($form_data['member_attendee_visibility']) ? 'True' : 'False';
 
     // Submit GF Form
     $result = GFAPI::submit_form(1, $input_values);
@@ -240,7 +246,7 @@ class AD_Account {
       }
       // Validate Email/Username Doesn't Exist
       elseif (username_exists( $user['user_email'] ) || email_exists( $user['user_email'])) {
-        echo json_encode(array('registered'=>false, 'message'=>'An account with this email address already exists. Please use the link above to login.'));
+        echo json_encode(array('registered'=>false, 'message'=>'An account with this email address already exists. <a class="js-scroll-login" href="#anchor-login">Click here to login.</a>'));
       }
       // Validate Password Strength
       elseif (!$uppercase || !$number || strlen($user['user_pass']) < 8) {

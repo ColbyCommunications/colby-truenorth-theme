@@ -171,7 +171,14 @@ class AD_Account_RCP {
     // If user is logged in or not and navigates to live event page but is NOT registered redirect them to register form
     if (is_singular('events') && !$register_view) {
       $event_status = ad_event_status(get_field('show_event_start_date_time'), get_field('show_event_end_date_time'));
-      if ($event_status === "Live" && !ad_registered_event(get_the_id())) {
+      $event_external_registration_live_event = false;
+
+      // If the event has an external registration but event will live on the TrueNorth site once live don't redirect to ?register=true page
+      if (get_field('external_events')['enable'] && get_field('external_events')['live_event'] === "TrueNorth") {
+        $event_external_registration_live_event = true;
+      }
+
+      if ($event_status === "Live" && !ad_registered_event(get_the_id()) && !$event_external_registration_live_event) {
         wp_safe_redirect( get_permalink(get_the_id()) . '?register=true' );
         die;
       }

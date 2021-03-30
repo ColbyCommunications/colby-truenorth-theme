@@ -1,9 +1,11 @@
 <?php
   $event_link_register = get_the_permalink() . "?register=true";
+  $event_link_title = "Register";
   $event_link_target = "";
 
-  if (get_field('external_event_link')) {
-    $event_link_register = get_field('external_event_link');
+  if (get_field('external_events')['enable']) {
+    $event_link_register = get_field('external_events')['registration_link'];
+    $event_link_title = get_field('external_events')['registration_link_text'];
     $event_link_target = 'target="_blank"';
   }
 
@@ -20,7 +22,7 @@
   $time_event_start_format = $time_event_start->format('H:i:s');
 
   // Add to Calendar Date/Time Format
-  $add_to_cal = ad_event_dates(get_field('date'), get_field('start_time'), get_field('end_time'), get_field('time_zone'));
+  $add_to_cal = ad_event_dates(get_field('date'), get_field('date_end'), get_field('start_time'), get_field('end_time'), get_field('time_zone'));
 ?>
 <section class="section pt10 pb10">
   <div class="row row-site column">
@@ -31,20 +33,28 @@
           <div class="event-card__details">
             <h1 class="event-card__headline"><?php the_title(); ?></h1>
             <div class="event-card__meta">
-              <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
-              <span><?php echo $date->format('F j, Y'); ?></span>
+              <?php if (!get_field('hide_date')) : ?>
+                <?php if (get_field('date_end')) : ?>
+                  <span><?php echo ad_start_end_date(get_field('date'), get_field('date_end')); ?></span>
+                <?php else : ?>
+                  <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
+                  <span><?php echo $date->format('F j, Y'); ?></span>
+                <?php endif; ?>
+              <?php endif; ?>
+              <?php if (!get_field('hide_time')) : ?>
               <?php
                 $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
                 $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
               ?>
               <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo $date_cal_timezone['label']; ?></span>
+              <?php endif; ?>
             </div>
             <div class="event-card__overview">
               <p><?php the_field('overview'); ?></p>
             </div>
             <div class="event-card__countdown countdown js-countdown" data-countdown="<?php echo $date_event_start_format . ' ' . $time_event_start_format; ?>"></div>
             <div class="event-card__action">
-              <a class="button" href="<?php echo $event_link_register; ?>" <?php echo $event_link_target; ?>><span>Register</span></a>
+              <a class="button" href="<?php echo $event_link_register; ?>" <?php echo $event_link_target; ?>><span><?php echo $event_link_title; ?></span></a>
             </div>
           </div>
         <?php else : ?>
@@ -52,20 +62,29 @@
             <h1 class="event-card__headline">You have been registered for:</h1>
             <h2 class="event-card__subheadline h3 subheader"><?php the_title(); ?></h2>
             <div class="event-card__meta">
-              <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
-              <span><?php echo $date->format('F j, Y'); ?></span>
+              <?php if (!get_field('hide_date')) : ?>
+                <?php if (get_field('date_end')) : ?>
+                  <span><?php echo ad_start_end_date(get_field('date'), get_field('date_end')); ?></span>
+                <?php else : ?>
+                  <?php $date = get_field('date'); $date = DateTime::createFromFormat('Ymd', $date); ?>
+                  <span><?php echo $date->format('F j, Y'); ?></span>
+                <?php endif; ?>
+              <?php endif; ?>
+              <?php if (!get_field('hide_time')) : ?>
               <?php
                 $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('start_time'));
                 $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),get_field('end_time'));
               ?>
               <span><?php echo $start_time; ?> - <?php echo $end_time; ?> <?php echo $date_cal_timezone['label']; ?></span>
+              <?php endif; ?>
             </div>
-            <?php if (!empty($add_to_cal['date_cal_start_iso']) && !empty($add_to_cal['date_cal_end_iso'])) : ?>
+            <?php if (!empty($add_to_cal['date_cal_start_iso']) && !empty($add_to_cal['date_cal_end_iso']) && get_field('add_to_calendar_options') !== "Hide") : ?>
             <span class="label label--secondary">Add to Calendar</span>
             <div class="addtocal event-card__addtocal">
               <div class="addtocal__data addtocal__data-title"><?php the_title(); ?></div>
               <div class="addtocal__data addtocal__data-start"><?php echo $add_to_cal['date_cal_start_iso']; ?></div>
               <div class="addtocal__data addtocal__data-end"><?php echo $add_to_cal['date_cal_end_iso']; ?></div>
+              <div class="addtocal__data addtocal__data-allday"><?php if (get_field('add_to_calendar_options') === "All Day") : ?>true<?php else : ?>false<?php endif; ?></div>
               <div class="addtocal__data addtocal__data-address"></div>
               <div class="addtocal__data addtocal__data-description"><b>Event link: <a href="<?php the_permalink(); ?>"><?php the_permalink(); ?></a></b><br><br><?php the_field('overview'); ?></div>
               <ul class="addtocal__list"></ul>
@@ -151,4 +170,4 @@
 <?php if (have_rows('pre_event_components')) : while (have_rows('pre_event_components')) : the_row(); ?>
   <?php include( locate_template( 'template-parts/components/loop-conditionals.php', false, false ) ); ?>
 <?php endwhile; endif; ?>
-<!-- Begin Components - Pre Events -->
+<!-- End Components - Pre Events -->
