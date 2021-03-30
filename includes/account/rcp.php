@@ -174,7 +174,7 @@ class AD_Account_RCP {
       $event_external_registration_live_event = false;
 
       // If the event has an external registration but event will live on the TrueNorth site once live don't redirect to ?register=true page
-      if (get_field('external_events')['enable'] && get_field('external_events')['live_event'] === "TrueNorth") {
+      if (get_field('external_events')['enable']) {
         $event_external_registration_live_event = true;
       }
 
