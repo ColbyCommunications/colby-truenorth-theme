@@ -994,7 +994,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .post-block__image img {display: block; width: 100%;}
 .post-block__image-overlay {position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(0, 40, 120, 0.9); padding: 0.625em 0.75em;}
 .post-block__image-overlay span {font-size: 0.875em; display: inline-block; line-height: 1.2; text-transform: uppercase; font-family: 'Swiss721 BT', sans-serif; letter-spacing: 0.03125em; color: #fff;}
-.post-block__title {font-size: 1.3125em; font-family: 'Victor Serif', sans-serif; font-weight: 400; text-align: left; margin-bottom: 0; color: #002878;}
+.post-block__title {font-size: 1.3125em; font-family: 'Victor Serif', sans-serif; font-weight: 600; font-style: normal; text-align: left; margin-bottom: 0; color: #002878;}
 
 @media only screen and (max-width: 959px) {
 	.post-grid__list--4 .post-grid__block {width: 33.3333%;}
