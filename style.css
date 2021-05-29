@@ -172,7 +172,7 @@ body:not(.user-is-tabbing) .utility-links > ul > li.utility-links__account > but
 	/*-----------Header-----------*/
 	.header__container{width: 100%; max-width:1310px; margin-right:auto; margin-left:auto; padding: 0 0.9375rem;}
 	.header__inner {height: 75px; position: relative;}
-	.logo {display:block; position:absolute; top:0; left:0; height: 75px; line-height: 100px; max-width: 350px; z-index:1;}
+	.logo {display:block; position:absolute; top:0; left:0; height: 75px; line-height: 75px; max-width: 350px; z-index:1;}
   .logo__colby, .logo__dare {display: block; position: absolute; top: 0; width: 50%; height: 100%;}
   .logo__colby {left: 0; }
   .logo__dare {right: 0;}
@@ -683,13 +683,13 @@ hr { border: none; height: 1px; background: #2890d7; clear: both; margin: 1.389e
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; }
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 /*-----------Buttons-----------*/
-.button {font-size: 0.875em; text-transform: uppercase; font-family: 'Swiss721 BT', serif; font-weight: 600; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; -webkit-appearance: none; display: inline-block; padding: 0.75em 1.875em; transition: all 200ms ease; color: #fff; background-color: #002878; border-radius: 75px;}
+.button {font-size: 0.875em; text-transform: uppercase; font-family: 'Swiss721 BT', serif; font-weight: 600; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; -webkit-appearance: none; display: inline-block; padding: 0.8em 1.875em; transition: all 200ms ease; color: #fff; background-color: #002878; border-radius: 75px;}
 body:not(.user-is-tabbing) .button {outline: none;}
 .button:hover, .button:focus {color: #fff; background-color: #67cbe3;}
 .button.secondary {background-color: #2890d7;}
 .button.secondary:hover, .button.secondary:focus {color: #fff; background-color: #002878;}
-.btn-brush-scale {font-size: 1rem; text-transform: uppercase; font-family: 'Gotham', serif; font-weight: 700; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding: 0.75em 2.5em 0.75em 3.125em; color: #fff; background-image:url('assets/images/button-brush-small.png'); background-repeat: no-repeat; background-position: center center; background-size: cover; transition: transform 250ms ease; will-change: transform;}
-.btn-brush-scale:hover {color: #fff; transform: scale3d(1.1, 1.1, 1);}
+.btn-brush-scale {font-size: 1.25em; font-family: 'Victor Serif', serif; font-style: italic; font-weight: 600; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding: 10px 32px; color: #d1f902; transition: all 250ms ease; will-change: transform; border: 2px solid #d1f902; border-radius: 75px;}
+.btn-brush-scale:hover {color: #002878; background-color: #d1f902;}
 .btn-brush {font-size: 1rem; text-transform: uppercase; font-family: 'Gotham', serif; font-weight: 700; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding: 1.125em 3.75em 1.625em 3.75em; min-width: 21.875em; color: #fff; background-image:url('assets/images/button-brush-large-hover.png'); }
 .btn-brush span {position: relative;}
 .btn-brush, .btn-brush::before {background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; }
@@ -807,8 +807,12 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 /********************************************************************************
 			 --- Section ---
 *********************************************************************************/
-.section--brush {position: relative; background: #002878; margin-top: 76px; margin-bottom: 76px;}
+.section--brush {position: relative; background: #002878; padding: 130px 0; margin-top: 76px; background-image: url(assets/images/texture.jpg); background-size: cover; }
 .section--brush, .section--brush h1, .section--brush h2, .section--brush h3, .section--brush h4, .section--brush h5, .section--brush h6, .section--brush .heading-block p {color: #fff;}
+.section--brush .gotham { font-family: 'Victor Serif', sans-serif; font-size: 50px !important; font-weight: 400; font-style: italic; text-transform: none; text-shadow: 0 0 6px #67cbe3; }
+.section--brush .flicker { font-family: 'Swiss721 BT', sans-serif; font-size: 90px !important; font-weight: 600; font-style: normal; text-transform: uppercase; letter-spacing: -0.01875em !important; text-shadow: 0 0 6px #67cbe3; }
+.section--brush h2 { color: #67cbe3; }
+.section--brush p { font-size: 1.125em; font-weight: 400; line-height: 1.4; }
 .section--brush .label {color: #2890d7}
 .section--brush .subheader {color: rgba(255,255,255,0.75)}
 .section--brush .button {background-color: #2890d7;}
@@ -816,10 +820,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .section--brush .button.secondary {background-color: #fff; color: #002878;}
 .section--brush .button.secondary:hover, .section--brush .button.secondary:focus {background: #2890d7; color: #fff}
 .section--brush::before, .section--brush::after {content: ""; display: block; width: 100%; height: 76px; position: absolute; left: 0; background-position: center center; background-repeat: no-repeat; background-size: cover;}
-.section--brush::before {top: -76px; background-image: url(assets/images/brush-banner-edge-top.png);}
-.section--brush::after {bottom: -76px; background-image: url(assets/images/brush-banner-edge-bottom.png);}
-.section--topo-pattern {position: relative;}
-.section--topo-pattern::before {content: ""; display: block; width: 100%; height: 229px; position: absolute; top: 50%; left: 0; margin-top: -114.5px; background-image: url(assets/images/topo-pattern.png); background-position: center center; background-repeat: repeat;}
+.section--topo-pattern {position: relative; background-image: url(assets/images/texture2.jpg); background-size: cover; }
 .section--pattern-blue, .section--pattern-tan {position: relative;}
 .section--pattern-blue::before, .section--pattern-tan::before {content: ""; display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
 .section--pattern-blue {background-color: #4672af;}
@@ -831,6 +832,8 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .section--bg-bottom {margin-bottom: -48px;}
 .section--events-list .heading__brush { font-family: 'Swiss721 BT', sans-serif; font-size: 1.5em; font-weight: 600; font-style: normal; text-decoration: uppercase; }
 .section--events-list .heading__brush a { color: #002878; }
+.section--heading-block .heading__brush { font-family: 'Victor Serif', sans-serif; font-size: 4em; font-weight: 400; font-style: italic; line-height: 1; text-transform: none; }
+.section--content-block + .section--heading-block::before { position: relative; top: -1.875em; display: block; content: ''; width: 100%; max-width: 1300px; height: 2px; margin: 0 auto; background-color: #67cbe3; }
 
 @media only screen and (min-width: 1025px) {
   .section--bg-fullh {min-height: calc(100vh - 298px)}
@@ -840,13 +843,18 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
   .section--bg-fullh {min-height: calc(100vh - 327px)}
 }
 
+@media (max-width: 1024px) {
+	.section--brush .gotham { font-size: 30px !important;  }
+	.section--brush .flicker { font-size: 50px !important;  }
+}
+
 @media only screen and (max-width: 1024px) {
 	.section--bg-top {margin-top: -10px;}
 }
 /********************************************************************************
 			 --- Section Headings ---
 *********************************************************************************/
-.heading {text-align: center; margin-bottom: 5em}
+.heading {text-align: center; margin-bottom: 2em}
 .heading--label {margin-top: 6.25em;}
 .heading__brush {font-size: 2.5em; font-weight: 400; font-style: italic; text-transform: uppercase; display: inline-block; background-position: center center; background-repeat: no-repeat; background-size: 100% 100%; color: #002878; font-family: 'Victor Serif', sans-serif; margin-bottom: 0; position: relative;}
 .heading__brush a {color: #fff;}
@@ -863,7 +871,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 }
 
 @media only screen and (min-width: 801px) {
-	.heading--c .heading__brush {min-width: 31em; max-width:40em}
+	/* .heading--c .heading__brush {min-width: 31em; max-width:40em} */
 }
 
 @media only screen and (max-width: 1300px) {
@@ -986,7 +994,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .post-block__image img {display: block; width: 100%;}
 .post-block__image-overlay {position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(0, 40, 120, 0.9); padding: 0.625em 0.75em;}
 .post-block__image-overlay span {font-size: 0.875em; display: inline-block; line-height: 1.2; text-transform: uppercase; font-family: 'Swiss721 BT', sans-serif; letter-spacing: 0.03125em; color: #fff;}
-.post-block__title {font-size: 1.3125em; font-family: 'Victor Serif', sans-serif; font-weight: 600; text-align: left; margin-bottom: 0; color: #002878;}
+.post-block__title {font-size: 1.3125em; font-family: 'Victor Serif', sans-serif; font-weight: 400; text-align: left; margin-bottom: 0; color: #002878;}
 
 @media only screen and (max-width: 959px) {
 	.post-grid__list--4 .post-grid__block {width: 33.3333%;}
@@ -1032,13 +1040,13 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .card__meta span:not(:last-child) {margin-bottom: 0.3333em;}
 
 /* Card Headline */
-.card__headline {font-size: 2.25em;}
+.card__headline {font-size: 2.25em; font-weight: 400;}
 .card__headline a {color: #002878;}
 .card__headline a:hover {color: #002878}
 /* Card Overview */
 .card__overview > :last-child {margin-bottom: 0}
 /* Card Action Link */
-.card__action {position: absolute; bottom: 0; left: 0; width: 100%; text-align: center;}
+.card__action {position: absolute; bottom: 0; left: 0; width: 100%;}
 .card__action a {margin-bottom: 0}
 
 /* Card Large */
@@ -1086,7 +1094,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 /********************************************************************************
 			 --- Components - Text Grid Col ---
 *********************************************************************************/
-.text-grid-col__block {margin-bottom: 3.75em; text-align: center;}
+.text-grid-col__block {margin-bottom: 3.75em;}
 .text-grid-col__block > :last-child {margin-bottom: 0;}
 .text-grid-col__subheadline {font-size: 1.25em; font-family: 'Gotham Book', sans-serif; font-weight: 400; color: #002878}
 .text-grid-col__action .button {margin-bottom: 0}
@@ -1173,6 +1181,12 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 *********************************************************************************/
 .flower {position: relative;}
 .northward-values {position: relative;}
+.northward-values__heading {font-family: 'Victor Serif', sans-serif; font-size: 4.5em; font-style: italic; font-weight: 400; text-transform: uppercase; line-height: 1; color: #002878;}
+.northward-values__heading span {display: block; font-family: 'Swiss721 BT', sans-serif; font-size: 24px; font-style: normal;} 
+.northward-values__heading a { color: #002878; }
+.northward-values__heading a:hover { color: #2890d7 }
+.northward-values__heading a:hover svg { fill: #2890d7 }
+.northward-values__col--logo svg { width: 60px; fill: #002878; margin: 0 auto 10px; }
 
 @media screen and (min-width:1200px) {
   .northward-values {display: flex; align-items: center;}
@@ -1212,7 +1226,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .flower__petal:hover{transform: scale3d(1.06, 1.06, 1);}
 .flower__petal:focus{outline:none}
 .flower__petal:after{position:absolute;top:0;right:0;bottom:0;left:0;width:180px;height:180px;background-position:50%;background-size:contain;background-repeat:no-repeat;content:"";opacity:.92}
-.flower__petal>div {position:absolute;top:0;right:0;bottom:0;left:0;z-index:14;display:flex;align-items:center;justify-content:center;padding:.75rem 1.5rem 1rem;font-family: 'Gotham', sans-serif;color:#fff;text-align:center;font-weight:400;font-size:1rem;line-height:1.2}
+.flower__petal>div {position:absolute;top:0;right:0;bottom:0;left:0;z-index:14;display:flex;align-items:center;justify-content:center;padding:.75rem 1.5rem 1rem;font-family: 'Swiss721 BT', sans-serif; color:#fff;text-align:center;font-weight:400;font-size:1rem;line-height:1.2}
 .flower__petal:nth-of-type(odd){margin-left:auto}
 .flower__petal:nth-of-type(2n){margin-right:auto}
 
@@ -1708,8 +1722,7 @@ table.table thead tr th, table.table tfoot tr th, table.table tfoot tr td, table
 /********************************************************************************
 			 --- Footer---
 *********************************************************************************/
-.footer {background-color: #002878; margin-top: 48px; position: relative;}
-.footer::before {content: ""; display: block; position: absolute; top:-48px; left: 0; width: 100%; height: 48px; background-image: url(assets/images/topo-pattern.png); background-position: top center; background-repeat: repeat;}
+.footer {background-color: #0c2340; margin-top: 48px; position: relative;}
 .footer__info ul, .footer__social ul {list-style: none; margin: 0; padding: 0;}
 .footer__info li {font-size: 10px; display: block;}
 .footer__info li, .footer__info a {color: rgba(255,255,255,1)}

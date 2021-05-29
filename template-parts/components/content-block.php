@@ -1,5 +1,5 @@
 <!-- Begin Content Block -->
-<section class="section section--snowflake pt<?php the_sub_field('top_spacing'); ?> pb<?php the_sub_field('bottom_spacing'); ?>">
+<section class="section section--content-block section--snowflake pt<?php the_sub_field('top_spacing'); ?> pb<?php the_sub_field('bottom_spacing'); ?>">
   <div class="row row-site column" data-reveal="fade">
     <?php if (get_sub_field('full_width')) : ?>
       <?php the_sub_field('content'); ?>
