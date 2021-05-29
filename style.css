@@ -857,7 +857,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .heading {text-align: center; margin-bottom: 2em}
 .heading--label {margin-top: 6.25em;}
 .heading__brush {font-size: 2.5em; font-weight: 400; font-style: italic; text-transform: uppercase; display: inline-block; background-position: center center; background-repeat: no-repeat; background-size: 100% 100%; color: #002878; font-family: 'Victor Serif', sans-serif; margin-bottom: 0; position: relative;}
-.heading__brush a {color: #fff;}
+.heading__brush a {color: #002878;}
 .heading__label { position: relative; font-size: 5.3125em; display: block; font-family: 'Victor Serif', sans-serif; font-style: italic; line-height: 0.22; color: #67cbe3; margin-top: -1em; margin-bottom: 0.7em}
 .heading__label::before, .heading__label::after { position: absolute; top: calc(60% - 2px); content: ''; height: 2px; width: 265px; background-color: #002878; }
 .heading__label::before { left: 6%; }

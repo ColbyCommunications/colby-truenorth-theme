@@ -5,7 +5,7 @@
         <div class="row row-site column">
           <div class="footer__row pt4 pb4">
             <div class="footer__left">
-              <a class="footer__logo" href="http://www.colby.edu/" target="_blank"><img alt="<?php the_field('name', 'option'); ?> Logo" src="/wp-content/uploads/colby-college-wordmark-logo.png" width="80" height="41" /></a>
+              <a class="footer__logo" href="http://www.colby.edu/" target="_blank"><img alt="<?php the_field('name', 'option'); ?> Logo" src="/wp-content/uploads/colby-college-wordmark-logo.png" width="130" height="64" /></a>
             </div>
             <div class="footer__middle">
               <div class="footer__cta">
