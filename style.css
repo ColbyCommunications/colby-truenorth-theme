@@ -321,7 +321,7 @@ body:not(.user-is-tabbing) .utility-links > ul > li.utility-links__account > but
 			 --- Main Body Layouts ---
 *********************************************************************************/
 @media only screen and (min-width: 1025px) {
-  .wrapper {padding-top: 100px;}
+  .wrapper {padding-top: 75px;}
 }
 
 @media only screen and (max-width: 1024px) {
@@ -820,7 +820,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .section--brush .button.secondary {background-color: #fff; color: #002878;}
 .section--brush .button.secondary:hover, .section--brush .button.secondary:focus {background: #2890d7; color: #fff}
 .section--brush::before, .section--brush::after {content: ""; display: block; width: 100%; height: 76px; position: absolute; left: 0; background-position: center center; background-repeat: no-repeat; background-size: cover;}
-.section--topo-pattern {position: relative; background-image: url(assets/images/texture2.jpg); background-size: cover; }
+.section--topo-pattern {position: relative; background-image: url(assets/images/texture2.jpg); background-size: cover; margin-bottom: 100px; }
 .section--pattern-blue, .section--pattern-tan {position: relative;}
 .section--pattern-blue::before, .section--pattern-tan::before {content: ""; display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
 .section--pattern-blue {background-color: #4672af;}
@@ -1725,10 +1725,10 @@ table.table thead tr th, table.table tfoot tr th, table.table tfoot tr td, table
 .footer {background-color: #0c2340; margin-top: 48px; position: relative;}
 .footer__info ul, .footer__social ul {list-style: none; margin: 0; padding: 0;}
 .footer__info li {font-size: 10px; display: block;}
-.footer__info li, .footer__info a {color: rgba(255,255,255,1)}
+.footer__info li, .footer__info a {color: #fbf8e9}
 .footer__info a:hover {color: rgba(255,255,255,0.65)}
 .footer__social li {display: inline-block; margin: 0 0.5em}
-.footer__social a {display: block; width: 2em; height: 2em; line-height: 1.5em; border-radius: 0.5em; text-align: center; background: #fff; color: #002878; transition: all 250ms ease;}
+.footer__social a {display: block; width: 2em; height: 2em; line-height: 1.5em; border-radius: 0.5em; text-align: center; background: #fbf8e9; color: #0c2340; transition: all 250ms ease;}
 .detect-mac .footer__social a {line-height: 1.75em;}
 .footer__social a:hover {background: #2890d7; color: #fff;}
 .footer__social .social-links__label {display: none;}
