@@ -390,7 +390,7 @@ body.user-is-tabbing .hero .slick-arrow:focus	 {outline: 2px dashed #2890d7}
 .inner-hero__body {display: flex; align-items: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; text-align: center;}
 .inner-hero__body .row-site {width: 100%;}
 .inner-hero__caption > :last-child {margin-bottom: 0}
-.inner-hero__title {font-size: 2em; font-family: 'Gotham', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 2.4px; color: #fff;}
+.inner-hero__title {font-size: 2.5em; text-transform: uppercase; color: #fff;}
 
 @media only screen and (max-width: 1600px) {
 	.inner-hero {height: 14.0625em;}
@@ -410,12 +410,11 @@ body.user-is-tabbing .hero .slick-arrow:focus	 {outline: 2px dashed #2890d7}
 /********************************************************************************
 			 --- Page Title ---
 *********************************************************************************/
-.page-title {margin-top: -22px; padding-top: 22px; margin-bottom: 2.5em; background-image: url(assets/images/topo-pattern.png); background-position: center center; background-repeat: repeat; position: relative;}
+.page-title {margin-top: -22px; padding-top: 22px; margin-bottom: 2.5em; position: relative;}
 .page-title__align {position: relative; bottom: -3.125em; text-align: center;}
 .page-title__heading > :last-child {margin-bottom: 0}
-.page-title__heading {display: inline-block; background-image: url(assets/images/headline-brush.png); background-position: center center;
-background-repeat: no-repeat; background-size: 100% 100%; padding: 2.375em 3.75em 2.875em 3.75em; min-width: 51.25em}
-.page-title__title {font-size: 2em; font-family: 'Gotham', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #fff; position: relative;}
+.page-title__heading {display: inline-block; min-width: 51.25em}
+.page-title__title {font-size: 2.5em; font-family: 'Victor Serif', sans-serif; font-weight: 400; text-transform: uppercase; color: #002878; position: relative;}
 
 @media only screen and (max-width: 1024px) {
   .page-title {margin-top: -10px;}
@@ -476,7 +475,7 @@ background-repeat: no-repeat; background-size: 100% 100%; padding: 2.375em 3.75e
 			 --- Template - Page Elements ---
 *********************************************************************************/
 /*-----------Titles-----------*/
-h1, h2, h3, h4, h5, h6 { margin: 0 0 0.833em 0; font-family:'Victor Serif', serif; line-height: 1.2; font-style: italic; color: #002878; }
+h1, h2, h3, h4, h5, h6 { margin: 0 0 0.833em 0; font-family:'Victor Serif', serif; line-height: 1.2; font-style: italic; font-weight: 400; color: #002878; }
 h1, .h1 {font-size: 3.125em; line-height: 1.125;}
 h2, .h2 {font-size: 2.625em;}
 h3, .h3 {font-size: 2rem}
@@ -683,19 +682,13 @@ hr { border: none; height: 1px; background: #2890d7; clear: both; margin: 1.389e
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; }
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 /*-----------Buttons-----------*/
-.button {font-size: 0.875em; text-transform: uppercase; font-family: 'Swiss721 BT', serif; font-weight: 600; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; -webkit-appearance: none; display: inline-block; padding: 0.8em 1.875em; transition: all 200ms ease; color: #fff; background-color: #002878; border-radius: 75px;}
+.button, .btn-brush {font-size: 0.875em; text-transform: uppercase; font-family: 'Swiss721 BT', serif; font-weight: 600; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; -webkit-appearance: none; display: inline-block; padding: 0.8em 1.875em; transition: all 200ms ease; color: #fff; background-color: #002878; border-radius: 75px;}
 body:not(.user-is-tabbing) .button {outline: none;}
-.button:hover, .button:focus {color: #fff; background-color: #67cbe3;}
+.button:hover, .button:focus, .btn-brush:hover, .btn-brush:focus {color: #fff; background-color: #67cbe3;}
 .button.secondary {background-color: #2890d7;}
 .button.secondary:hover, .button.secondary:focus {color: #fff; background-color: #002878;}
 .btn-brush-scale {font-size: 1.25em; font-family: 'Victor Serif', serif; font-style: italic; font-weight: 600; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding: 10px 32px; color: #d1f902; transition: all 250ms ease; will-change: transform; border: 2px solid #d1f902; border-radius: 75px;}
 .btn-brush-scale:hover {color: #002878; background-color: #d1f902;}
-.btn-brush {font-size: 1rem; text-transform: uppercase; font-family: 'Gotham', serif; font-weight: 700; letter-spacing: 1.2px; cursor: pointer; line-height: 1; border: none; margin: 0 0 1.111em 0; position: relative; text-decoration: none; text-align: center; -webkit-appearance: none; display: inline-block; padding: 1.125em 3.75em 1.625em 3.75em; min-width: 21.875em; color: #fff; background-image:url('assets/images/button-brush-large-hover.png'); }
-.btn-brush span {position: relative;}
-.btn-brush, .btn-brush::before {background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; }
-.btn-brush::before {content: ""; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image:url('assets/images/button-brush-large.png'); transition: opacity 250ms ease}
-.btn-brush:hover {color: #fff; }
-.btn-brush:hover::before {opacity: 0;}
 .button.large {font-size: 1.25rem; padding: 0.7em 2.25em}
 .button.tiny {font-size: 0.8125rem; padding: 0.9231em 1.5385em}
 .button.expand {padding-right: 0; padding-left: 0; width: 100%;}
@@ -811,7 +804,7 @@ img.alignleft, img.alignright {float:none; margin: 0 auto 1.25em auto; display:b
 .section--brush, .section--brush h1, .section--brush h2, .section--brush h3, .section--brush h4, .section--brush h5, .section--brush h6, .section--brush .heading-block p {color: #fff;}
 .section--brush .gotham { font-family: 'Victor Serif', sans-serif; font-size: 50px !important; font-weight: 400; font-style: italic; text-transform: none; text-shadow: 0 0 6px #67cbe3; }
 .section--brush .flicker { font-family: 'Swiss721 BT', sans-serif; font-size: 90px !important; font-weight: 600; font-style: normal; text-transform: uppercase; letter-spacing: -0.01875em !important; text-shadow: 0 0 6px #67cbe3; }
-.section--brush h2 { color: #67cbe3; }
+.section--brush h2 { color: #67cbe3; max-width: 540px; }
 .section--brush p { font-size: 1.125em; font-weight: 400; line-height: 1.4; }
 .section--brush .label {color: #2890d7}
 .section--brush .subheader {color: rgba(255,255,255,0.75)}
@@ -1635,12 +1628,12 @@ body .gform_wrapper .top_label div.ginput_container, .gform_wrapper ul li.gfield
 *********************************************************************************/
 .pagination {font-size:16px; margin-top:3.000em}
 .pagination:before,.pagination:after{content:" ";display:table}.pagination:after{clear:both}
-.pag-button {text-decoration: none; font-family: 'Gotham', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-align: center; display:block; padding:0 1.250em; height:2.250em; line-height:2.250em; outline: none; color: #002878; border: 1px solid rgba(227, 215, 209, 0.5); transition:all 250ms ease;}
+.pag-button {text-decoration: none; font-size: 0.875em; text-transform: uppercase; font-family: 'Swiss721 BT', serif; font-weight: 600; letter-spacing: 1.2px; text-align: center; display:block; padding:0 1.250em; height:2.250em; line-height:2.250em; outline: none; color: #002878; border: 1px solid rgba(227, 215, 209, 0.5); transition:all 250ms ease;}
 .pag-button:hover {background-color: #002878; border-color: #002878; color: #fff;}
 .pag-next, .pag-prev, .pag-jump {float:left;}
 .pag-prev {margin-right:0.250em;}
 .pag-jump {width:7.500em; position:relative; cursor:pointer; list-style:none; margin:0 0 0 0.938em; padding:0;}
-.pag-jump-label {font-family: 'Gotham', sans-serif; font-weight:700; text-transform:uppercase; letter-spacing: 1px; display:block; text-align:center; height:2.250em; line-height:2em; background:#fff; border: 1px solid rgba(227, 215, 209, 0.5); color:#002878; transition: all 250ms ease;}
+.pag-jump-label {font-size: 0.875em; text-transform: uppercase; font-family: 'Swiss721 BT', serif; font-weight: 600; letter-spacing: 1.2px; display:block; text-align:center; height:2.250em; line-height:2em; background:#fff; border: 1px solid rgba(227, 215, 209, 0.5); color:#002878; transition: all 250ms ease;}
 .pag-jump-label:hover, .drop-active .pag-jump-label {background: #002878; border-color: #002878; color: #fff;}
 .pag-jump-label:after {content:"\e911"; font-family: 'CD-Project-Icons'; margin-left:0.375em;}
 .drop-active .pag-jump-label:after {content:"\e917"}
