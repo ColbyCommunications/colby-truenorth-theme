@@ -1924,6 +1924,10 @@ pre {padding:15px; border:1px solid #e3d7d1;}
 	font-weight: 600 !important;
 }
 
+.intro {
+	margin-top: 0;
+}
+
 .intro h2 {
 	font-size: 4em;
 	color: #d1f902;
