@@ -5,7 +5,10 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 <!-- Begin Hero -->
 <?php get_template_part( 'template-parts/hero' ); ?>
-<!-- Begin Hero -->
+<!-- End Hero -->
+<!-- Begin Intro -->
+<?php get_template_part( 'template-parts/components/intro' ); ?>
+<!-- End Intro -->
 <!-- Begin Components -->
 <?php get_template_part( 'template-parts/components/loop' ); ?>
 <!-- End Components -->
