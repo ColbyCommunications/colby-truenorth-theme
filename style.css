@@ -1923,3 +1923,9 @@ pre {padding:15px; border:1px solid #e3d7d1;}
 	font-family: 'Swiss721 BT', sans-serif !important;
 	font-weight: 600 !important;
 }
+
+.intro h2 {
+	font-size: 4em;
+	color: #d1f902;
+	max-width: none;
+}
