@@ -7,7 +7,7 @@
 <?php get_template_part( 'template-parts/hero' ); ?>
 <!-- End Hero -->
 <!-- Begin Intro -->
-<?php get_template_part( 'template-parts/components/intro' ); ?>
+<?php if ( is_front_page() ) { get_template_part( 'template-parts/components/intro' ); } ?>
 <!-- End Intro -->
 <!-- Begin Components -->
 <?php get_template_part( 'template-parts/components/loop' ); ?>
